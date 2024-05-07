@@ -32,9 +32,14 @@
     <span class="nav-item">
     <%= link_to "Voir mon profil", user_path(current_user), method: :get, class: "nav-link" %>
     </span>
-    <span class="nav-item">
-      <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link" %>
-    </span>  
+     <li class="nav-item">
+                <!-- Formulaire de déconnexion -->
+                <%= form_tag(destroy_user_session_path, method: :delete) do %>
+                  <%= button_tag(type: 'submit', class: 'nav-link', style: 'background: none; border: none; cursor: pointer;') do %>
+                    Se déconnecter
+                  <% end %>
+                <% end %>
+              </li>
   </div>
 <% else %>
   <div class="navbar-nav ml-auto">
