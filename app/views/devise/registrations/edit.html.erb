@@ -25,7 +25,12 @@
     </div>
   </div>
 
-  <!-- Rest of the form fields -->
+<div class="mb-3">
+  <div class="form-floating">
+    <%= f.label :current_password, "Mot de passe actuel", class: "form-label" %>
+    <%= f.password_field :current_password, class: "form-control", required: true %>
+  </div>
+</div>
 
   <div class="actions">
     <%= f.submit "Mettre à jour", class: "btn btn-primary" %>
