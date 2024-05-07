@@ -1,16 +1,12 @@
-<h1>Profil de <%= @user.first_name %> <%= @user.last_name %></h1>
-<p>Description : <%= @user.description %></p>
-<p>E-mail : <%= @user.email %></p>
+<h1>Profil de <%= @user.email %></h1>
+<p><strong>Prénom:</strong> <%= @user.first_name %></p>
+<p><strong>Nom:</strong> <%= @user.last_name %></p>
+<p><strong>Description:</strong> <%= @user.description %></p>
+<p><strong>E-mail:</strong> <%= @user.email %></p>
 
-<h2>Événements créés par <%= @user.first_name %></h2>
-<% @events.each do |event| %>
-  <div>
-    <h3><%= event.title %></h3>
-    <%= link_to "Voir l'événement", event_path(event) %>
-  </div>
+<h2>Événements administrés par <%= @user.email %></h2>
+<% @administered_events.each do |event| %>
+  <p><%= link_to event.title, event_path(event) %></p>
 <% end %>
 
-<% if current_user == @user %>
-  <%= link_to "Modifier mon e-mail", edit_user_registration_path %>
-  <%= link_to "Modifier mon mot de passe", edit_user_password_path %>
-<% end %>
+<%= link_to "Modifier mon profil", edit_user_registration_path, class: "btn btn-primary" %>

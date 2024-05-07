@@ -1,0 +1,20 @@
+<h1><%= @event.title %></h1>
+<p><strong>Date:</strong> <%= @event.start_date.strftime('%d %B %Y') %></p>
+<p><strong>Durée:</strong> <%= @event.duration %> minutes</p>
+<p><strong>Prix:</strong> <%= number_to_currency(@event.price) %></p>
+<p><strong>Lieu:</strong> <%= @event.location %></p>
+
+<% if user_signed_in? %>
+  <% if current_user.administered_events.include?(@event) %>
+    <%= link_to "Modifier", edit_event_path(@event), class: "btn btn-primary" %>
+    <%= link_to "Supprimer", @event, method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer cet événement ?" }, class: "btn btn-danger" %>
+  <% else %>
+    <% if current_user.attended_events.include?(@event) %>
+      <%= link_to "Se désinscrire", event_attendance_path(@event), method: :delete, class: "btn btn-warning" %>
+    <% else %>
+      <%= link_to "S'inscrire", event_attendance_path(@event), method: :post, class: "btn btn-success" %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= link_to "Retour à la liste des événements", root_path, class: "btn btn-secondary" %>

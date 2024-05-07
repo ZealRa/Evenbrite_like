@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :authorize_user_profile, only: [:show]
 
   def show
-    @events = @user.admin_events
+    @user = current_user
+    @administered_events = @user.administered_events
   end
 
   private
@@ -11,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def authorize_user
-    redirect_to root_path unless current_user == @user
+  def authorize_user_profile
+    redirect_to root_path unless current_user == User.find(params[:id])
   end
 end
