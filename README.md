@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Eventbrite-like
 
-Things you may want to cover:
+Eventbrite-like est une application web permettant aux utilisateurs de créer et de participer à des événements locaux.
 
-* Ruby version
+Fonctionnalités
+Création d'événements : Les utilisateurs peuvent créer des événements en fournissant des détails tels que le titre, la date, la durée, le lieu et le prix.
+Inscription aux événements : Les utilisateurs peuvent s'inscrire aux événements créés par d'autres utilisateurs.
+Gestion des événements : Les utilisateurs qui ont créé un événement peuvent le modifier ou le supprimer.
+Profil utilisateur : Chaque utilisateur dispose d'un profil qui affiche ses informations personnelles ainsi que les événements qu'il a créés.
 
-* System dependencies
+Ruby 3.2.2
+Rails 7.1.3.2
+PostgreSQL
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+https://thp-eventbrite-red-frost-299.fly.dev/
