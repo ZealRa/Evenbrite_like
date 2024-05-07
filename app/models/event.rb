@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  belongs_to :administrator, class_name: 'User'
+  # belongs_to :administrator, class_name: 'User'
 
   has_many :participations
   has_many :participants, through: :participations, source: :user
